@@ -1,2 +1,5 @@
 # displaylink-mirror
-easy mirror x11 to displaylink adapter
+
+Easy mirror x11 to displaylink adapter
+
+### NOTE : config paths are staticly linked to /home/pooya/displaylink , Change them to yours :))
