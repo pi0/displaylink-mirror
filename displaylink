@@ -1,12 +1,10 @@
-#!/bin/bash 
+#!/bin/bash
 
-#enable job control in script
-set -m
+DIR="${BASH_SOURCE[0]}";
+if ([ -h "${DIR}" ]) then
+  while([ -h "${DIR}" ]) do cd `dirname "$DIR"`; DIR=`readlink "${DIR}"`; done
+fi
+cd `dirname ${DIR}` > /dev/null
+DIR=`pwd`;
 
-pkill x11vnc
-x11vnc --loop -scale 1920x1080 &
-sleep 2
-xinit /home/pooya/displaylink/xinitrc -- /usr/bin/X :2 -xf86config /home/pooya/displaylink/xorg.conf -novtswitch -sharevts -nocursor &
-
-fg %1
-kill %2
+sudo $DIR/displaylink.sh
